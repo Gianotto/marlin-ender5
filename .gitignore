@@ -1,0 +1,21 @@
+# PlatformIO / build artifacts
+.pio/
+build/
+*.bin
+*.hex
+*.elf
+
+# Cloned Marlin source (fetched by build script, never committed)
+/Marlin-src/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
