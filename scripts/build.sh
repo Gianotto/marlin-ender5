@@ -23,6 +23,11 @@ fi
 cp "$REPO_ROOT/config/Configuration.h"     "$MARLIN_SRC/Marlin/Configuration.h"
 cp "$REPO_ROOT/config/Configuration_adv.h" "$MARLIN_SRC/Marlin/Configuration_adv.h"
 
+# Optional custom bootscreen (only overlaid when present).
+if [ -f "$REPO_ROOT/config/_Bootscreen.h" ]; then
+  cp "$REPO_ROOT/config/_Bootscreen.h" "$MARLIN_SRC/Marlin/_Bootscreen.h"
+fi
+
 # 3. Compile.
 cd "$MARLIN_SRC"
 platformio run -e "$PIO_ENV"

@@ -39,3 +39,8 @@ G-code verified against this firmware:
 | Probe | BL-Touch (bilinear ABL) |
 | Extruder | Direct drive — relocated stock Creality extruder |
 | Display | Stock Creality 12864 (CR10_STOCKDISPLAY) |
+
+## Boot logo
+
+A custom boot logo is shown on startup — see [docs/bootscreen.md](docs/bootscreen.md)
+for how it's generated and how to change it.
