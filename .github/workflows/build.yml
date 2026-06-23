@@ -1,0 +1,51 @@
+name: Build firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio
+            ~/.cache/pip
+          key: pio-${{ runner.os }}-${{ hashFiles('marlin.version') }}
+
+      - name: Install PlatformIO
+        run: pip install -U platformio
+
+      - name: Build
+        run: bash scripts/build.sh
+
+      - name: Name the artifact
+        id: name
+        run: echo "bin=firmware-ender5-skr-mini-e3-v1.2-${GITHUB_SHA::7}.bin" >> "$GITHUB_OUTPUT"
+
+      - name: Rename binary
+        run: mv dist/firmware.bin "dist/${{ steps.name.outputs.bin }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.name.outputs.bin }}
+          path: dist/${{ steps.name.outputs.bin }}
+
+      - name: Attach to release (on tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/${{ steps.name.outputs.bin }}
