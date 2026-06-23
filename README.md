@@ -24,6 +24,12 @@ See [docs/flashing.md](docs/flashing.md).
 The firmware ships with placeholders that MUST be calibrated on your machine
 (probe offset, Z-offset, e-steps). See [docs/calibration.md](docs/calibration.md).
 
+## Slicer (Cura)
+
+G-code verified against this firmware:
+- [docs/cura-start-gcode.md](docs/cura-start-gcode.md) — Start G-code
+- [docs/cura-end-gcode.md](docs/cura-end-gcode.md) — End G-code
+
 ## Hardware
 
 | Item | Value |
