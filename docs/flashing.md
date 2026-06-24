@@ -1,4 +1,4 @@
-# Flashing the SKR Mini E3 V1.2
+# Flashing the SKR Mini E3 V2.0
 
 1. Copy `firmware.bin` to the **root** of a FAT32-formatted microSD card.
    - The file MUST be named `firmware.bin`.

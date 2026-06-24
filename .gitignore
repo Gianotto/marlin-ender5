@@ -7,6 +7,7 @@ build/
 
 # Cloned Marlin source (fetched by build script, never committed)
 /Marlin-src/
+/Marlin-old/
 
 # Python
 __pycache__/

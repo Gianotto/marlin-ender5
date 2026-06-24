@@ -1,7 +1,7 @@
-# Marlin — Ender 5 + BTT SKR Mini E3 V1.2 + BL-Touch
+# Marlin — Ender 5 + BTT SKR Mini E3 V2.0 + BL-Touch
 
 Marlin 2.1.2.7 configured for a Creality Ender 5 running a BigTreeTech
-SKR Mini E3 V1.2 with a BL-Touch and a direct-drive (relocated stock Creality
+SKR Mini E3 V2.0 with a BL-Touch and a direct-drive (relocated stock Creality
 extruder).
 
 This is a **config-overlay** repo: it stores only the customizations. The build
@@ -35,10 +35,15 @@ G-code verified against this firmware:
 | Item | Value |
 |------|-------|
 | Printer | Creality Ender 5 (stock 220×220×300, stock hotend/thermistors) |
-| Board | BigTreeTech SKR Mini E3 V1.2 (STM32F103RC, 4× TMC2209 UART) |
-| Probe | BL-Touch (bilinear ABL) |
-| Extruder | Direct drive — relocated stock Creality extruder |
+| Board | BigTreeTech SKR Mini E3 V2.0 (STM32F103RC, 4× TMC2209 UART) |
+| Probe | BL-Touch (3×3 bilinear ABL); signal wired to the **Z-STOP** port (`Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN`) |
+| Extruder | Direct drive — relocated stock Creality extruder (~110 mm gear→nozzle) |
 | Display | Stock Creality 12864 (CR10_STOCKDISPLAY) |
+| Filament sensor | DIY contact switch on the E0-STOP port (`FILAMENT_RUNOUT_SENSOR`) |
+
+> **Board revision matters:** this is the **V2.0** board. V1.2 and V2.0 differ on the
+> EXP1 display pins — using the wrong `MOTHERBOARD` gives a lit-but-blank LCD while the
+> motors still work. Confirm the printed revision on your board.
 
 ## Boot logo
 

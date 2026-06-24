@@ -7,7 +7,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MARLIN_TAG="$(tr -d '[:space:]' < "$REPO_ROOT/marlin.version")"
 MARLIN_SRC="$REPO_ROOT/Marlin-src"
-PIO_ENV="STM32F103RC_btt_USB"
+PIO_ENV="${PIO_ENV:-STM32F103RC_btt_USB}"
 FLASH_LIMIT=262144   # 256 KB
 
 echo ">> Marlin tag: $MARLIN_TAG"
