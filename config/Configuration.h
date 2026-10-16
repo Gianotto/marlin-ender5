@@ -689,9 +689,9 @@
     #define DEFAULT_KI_LIST {   1.54,   1.54 }
     #define DEFAULT_KD_LIST {  76.55,  76.55 }
   #else
-    #define DEFAULT_KP  21.73
-    #define DEFAULT_KI   1.54
-    #define DEFAULT_KD  76.55
+    #define DEFAULT_KP  20.69   // M303 E0 S240 C8, 50W cartridge + sock, part fan 40%
+    #define DEFAULT_KI   2.02
+    #define DEFAULT_KD  52.96
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
